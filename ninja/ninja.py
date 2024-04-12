@@ -5,10 +5,14 @@ import pgzrun
 # Set window size
 WIDTH = 1200
 HEIGHT = 800
+
+# Constants for player positions
 NINJA_X = 80
 NINJA_START_Y = 50
 ENEMY_X = 900
 ENEMY_START_Y = HEIGHT / 2
+
+# Constant for collision detection
 COLLISION_DISTANCE = 51
 
 # Global variables
@@ -21,8 +25,10 @@ shurikens = []
 screen_num = 1
 
 # Pygame Zero hooks
+
 def update():
     """Update the actors."""
+
     global shurikens, enemy_speed, screen_num
 
     if screen_num == 2:
@@ -80,6 +86,7 @@ def draw():
 
 def on_mouse_move(pos):
     """Respond to mouse movement by moving the player to follow the mouse, but only in the Y direction."""
+    
     if screen_num == 2:
         x, y = pos
         bob.y = y
@@ -103,4 +110,5 @@ def on_mouse_down(pos):
         shurikens.append(s)
 
 
+# Start the Pygame Zero engine
 pgzrun.go() 
